@@ -45,7 +45,7 @@ function gradeQuiz(candidateAnswers) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   for(i=0; i<questions.length; i++){
     console.log("Your Answer: " + candidateAnswers[i])
-    console.log("Your Answer: " + correctAnswers[i]) 
+    console.log("Correct Answer: " + correctAnswers[i]) 
   }
 
 
@@ -77,7 +77,7 @@ function runProgram() {
   gradeQuiz(candidateAnswers);
 }
 
-//runProgram()
+
 // ----------- Don't write any code or change any code below this line ---------- //
 module.exports = {
   candidateName: candidateName,
