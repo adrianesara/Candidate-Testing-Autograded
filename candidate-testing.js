@@ -37,16 +37,17 @@ function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
   for(i=0; i<questions.length; i++){
     candidateAnswers[i] = input.question(questions[i]) 
-  }
-}
+  console.log("Your Answer: " + candidateAnswers[i])
+  console.log("Correct Answer: " + correctAnswers[i]) 
+}}
 
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  for(i=0; i<questions.length; i++){
-    console.log("Your Answer: " + candidateAnswers[i])
-    console.log("Correct Answer: " + correctAnswers[i]) 
-  }
+//  for(i=0; i<questions.length; i++){
+//    console.log("Your Answer: " + candidateAnswers[i])
+//    console.log("Correct Answer: " + correctAnswers[i])  
+//  }
 
 
   let grade = 0;  //TODO 3.2 use this variable to calculate the candidates score.
@@ -76,6 +77,7 @@ function runProgram() {
   askQuestion();
   gradeQuiz(candidateAnswers);
 }
+
 
 
 // ----------- Don't write any code or change any code below this line ---------- //
