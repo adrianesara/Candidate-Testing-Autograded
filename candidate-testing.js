@@ -29,7 +29,7 @@ let candidateAnswers = [];
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-  const candidateName = input.question("Candidate Name: ")
+  candidateName = input.question("Candidate Name: ")
 }
 
 
@@ -44,13 +44,27 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   for(i=0; i<questions.length; i++){
-    console.log("Your Answer: ${candidateAnswers[i]}")
-    console.log("Your Answer: ${correctAnswers[i]}") 
+    console.log("Your Answer: " + candidateAnswers[i])
+    console.log("Your Answer: " + correctAnswers[i]) 
   }
 
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  let grade = 0;  //TODO 3.2 use this variable to calculate the candidates score.
+  let numCorrect = 0;
+  for(i=0; i<correctAnswers.length; i++){
+    if(candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
+      numCorrect++;
+    }
+  }
 
+  grade = numCorrect/5*100
+  console.log(">>> Overal Grade: " + grade + "% (" + numCorrect + " of 5 responses correct) <<<")
+
+  if(grade < 80){
+    console.log(">>> Status: FAILED <<<")
+  } else {
+    console.log(">>> Status: PASSED <<<")
+  }
 
   return grade;
 }
@@ -58,11 +72,12 @@ function gradeQuiz(candidateAnswers) {
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log('Welcome ${candidateName}');
+  console.log('Welcome ' + candidateName);
   askQuestion();
-  gradeQuiz(this.candidateAnswers);
+  gradeQuiz(candidateAnswers);
 }
 
+//runProgram()
 // ----------- Don't write any code or change any code below this line ---------- //
 module.exports = {
   candidateName: candidateName,
